@@ -93,7 +93,7 @@ module.exports = (() => {
       ) {
         if (this.settings.enableToasts) {
           Toasts.show(
-            "Schalte jede Hintergrundgeräusch Features von Discord. -> Spracheinstellungen. TEST",
+            "Schalte jede Hintergrundgeräusch Features von Discord. -> Spracheinstellungen.",
             { type: "warning", timeout: 5000 }
           );
         }
