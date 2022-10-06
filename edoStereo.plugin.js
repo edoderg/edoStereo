@@ -81,11 +81,6 @@ module.exports = (() => {
 
         setTransportOptions.call(thisObj, obj);
       };
-      if (!this.settingsWarning()) {
-        if (this.settings.enableToasts) {
-          Toasts.info("Stereo Sound aktiviert");
-        }
-      }
       return ret;
 	  }});
     }
