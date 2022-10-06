@@ -34,3 +34,8 @@
 <br>
 
 **Schritt 3.** Füge das Plugin in deinen BetterDiscord Plugin Ordner ein.
+
+
+# LEAVE A ⭐ THANK YOU
+
+## edo#0001 on discord
