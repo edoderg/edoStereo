@@ -1,6 +1,6 @@
 /**
  * @name edoStereo
- * @version 0.0.1
+ * @version 0.0.2
  * @author edo#0001
  * @authorId 269831113919299584
  * @invite Knqb3mmMCA
