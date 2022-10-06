@@ -32,7 +32,7 @@
 @else@*/
 
 module.exports = (() => {
-    const config = {"main":"index.js","info":{"name":"edoStereo","authors":[{"name":"edo#0001","discord_id":"269831113919299584"}],"version":"0.0.1","description":"Stereo Sound für Discord. Patch für neue Discord Version. edo#0001"},"changelog":[{"title":"Veränderungen","items":["Stereo Sound Plugin für die neue BetterDiscord Version 1.7.0"]}],"defaultConfig":[{"type":"switch","id":"enableToasts","name":"Benachrichtung Aktivieren","note":"Warnung für Spracheinstellungsfeatures","value":true}]};
+    const config = {"main":"index.js","info":{"name":"edoStereo","authors":[{"name":"edo#0001","discord_id":"269831113919299584"}],"version":"0.0.1","description":"Stereo Sound für Discord. Patch für neue Discord Version. edo#0001"},"changelog":[{"title":"Veränderungen","items":["Stereo Sound Plugin für die neue BetterDiscord Version 1.7.0"], ["Benachrichtung das Stereo Aktiv ist im Talk."]}],"defaultConfig":[{"type":"switch","id":"enableToasts","name":"Benachrichtung Aktivieren","note":"Warnung für Spracheinstellungsfeatures","value":true}]};
 
     return !global.ZeresPluginLibrary ? class {
         constructor() {this._config = config;}
@@ -81,6 +81,11 @@ module.exports = (() => {
 
         setTransportOptions.call(thisObj, obj);
       };
+      if (!this.settingsWarning()) {
+        if (this.settings.enableToasts) {
+          Toasts.info("Stereo Sound aktiviert");
+        }
+      }
       return ret;
 	  }});
     }
