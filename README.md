@@ -1,10 +1,10 @@
 # edoStereo Plugin 0.0.1
 
-##[ENGLISH]
+## [ENGLISH]
 
 ## Stereo sound for Discord. BetterDiscord 1.7.0 Fix
 
-###Installing Proccess
+### Installing Proccess
 
 **Step 1.** Install BetterDiscord [Here](https://betterdiscord.app/)
 
@@ -19,7 +19,7 @@
 <br>
 <br>
 
-##[GERMAN]
+## [GERMAN]
 
 ## Stereo Sound für Discord. BetterDiscord 1.7.0 Fix
 
