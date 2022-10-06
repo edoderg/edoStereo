@@ -39,3 +39,5 @@
 # LEAVE A ⭐ THANK YOU
 
 ## edo#0001 on discord
+
+### Basic Code Structure inspired by @bepvte <3
