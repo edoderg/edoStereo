@@ -58,7 +58,7 @@ module.exports = (() => {
         const plugin = (Plugin, Library) => {
   const { WebpackModules, Patcher, Toasts } = Library;
 
-  return class StereoSound extends Plugin {
+  return class edoStereo extends Plugin {
     onStart() {
       this.settingsWarning();
       const voiceModule = WebpackModules.getModule(BdApi.Webpack.Filters.byPrototypeFields("updateVideoQuality"));
