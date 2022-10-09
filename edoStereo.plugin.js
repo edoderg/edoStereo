@@ -41,7 +41,7 @@ module.exports = (() => {
         getDescription() {return config.info.description;}
         getVersion() {return config.info.version;}
         load() {
-            BdApi.showConfirmationModal("Fehlende BetterDiscord Library", `${config.info.name} fehlt. Klicke Jetzt Installieren um es runterzuladen.`, {
+            BdApi.showConfirmationModal("Fehlende BetterDiscord Library", `ZeresPluginLibrary fehlt. Klicke Jetzt Installieren um es runterzuladen.`, {
                 confirmText: "Jetzt Installieren",
                 cancelText: "Abbrechen",
                 onConfirm: () => {
