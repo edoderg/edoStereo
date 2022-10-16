@@ -2,7 +2,7 @@
 
 ## [ENGLISH]
 
-## Stereo sound for Discord. BetterDiscord 1.7.0 Fix
+## Stereo sound for Discord. BetterDiscord 1.8.1 Fix
 
 ### Installing Proccess
 
@@ -21,7 +21,7 @@
 
 ## [GERMAN]
 
-## Stereo Sound für Discord. BetterDiscord 1.7.0 Fix
+## Stereo Sound für Discord. BetterDiscord 1.8.1 Fix
 
 ### Installieren
 
