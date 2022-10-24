@@ -19,6 +19,8 @@
 <br>
 <br>
 
+![Screenshot](note.png)
+
 ## [GERMAN]
 
 ## Stereo Sound für Discord. BetterDiscord 1.8.2
