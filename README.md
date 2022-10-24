@@ -19,7 +19,7 @@
 <br>
 <br>
 
-## ⚠️NOTE TURN THESE SETTINGS OFF⚠️
+## ⚠️NOTE⚠️ TURN THESE SETTINGS OFF⚠
 
 ![Screenshot](note.png)
 
@@ -39,7 +39,7 @@
 
 **Schritt 3.** Füge das Plugin in deinen BetterDiscord Plugin Ordner ein.
 
-## ⚠️WARNUNG STELLE DIESE EINSTELLUNGEN AUS⚠️
+## ⚠️WARNUNG⚠️ STELLE DIESE EINSTELLUNGEN AUS
 
 ![Screenshot](note.png)
 
