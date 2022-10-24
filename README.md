@@ -19,6 +19,8 @@
 <br>
 <br>
 
+## ⚠️NOTE TURN THESE SETTINGS OFF⚠️
+
 ![Screenshot](note.png)
 
 ## [GERMAN]
@@ -37,6 +39,9 @@
 
 **Schritt 3.** Füge das Plugin in deinen BetterDiscord Plugin Ordner ein.
 
+## ⚠️WARNUNG STELLE DIESE EINSTELLUNGEN AUS⚠️
+
+![Screenshot](note.png)
 
 # LEAVE A ⭐ THANK YOU
 
