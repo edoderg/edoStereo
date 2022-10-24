@@ -1,5 +1,6 @@
 # edoStereo Plugin 0.0.2
-
+###### [ENG] Requires a capable stereo microphone! 
+###### [GER] Benötigt ein geeignetes Stereomikrofon!
 ## [ENGLISH]
 
 ## Stereo sound for Discord. BetterDiscord 1.8.2
