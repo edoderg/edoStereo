@@ -48,4 +48,4 @@
 
 ## edo#0001 on discord
 
-### Basic Code Structure inspired by @bepvte <3
+### Basic Code Structure inspired by @bepvte - @riolubruh <3
