@@ -5,7 +5,7 @@
  * @authorId 269831113919299584
  * @invite Knqb3mmMCA
  * @source https://github.com/edoderg/edoStereo
- * @updateUrl https://raw.githubusercontent.com/edoderg/edoStereo/main/edoStereo.plugin.js
+ * @updateUrl https://github.com/edoderg/edoStereo/blob/main/edoStereo.plugin.js
  */
 /*@cc_on
 @if (@_jscript)
