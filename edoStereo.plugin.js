@@ -75,8 +75,8 @@ module.exports = (() => {
         if (obj.fec) {
           obj.fec = false;
         }
-        if (obj.encodingVoiceBitRate < 512000 ) { //128
-                obj.encodingVoiceBitRate = 512000
+        if (obj.encodingVoiceBitRate < 3840000 ) { //128
+                obj.encodingVoiceBitRate = 5120000;
         }
 
         setTransportOptions.call(thisObj, obj);
