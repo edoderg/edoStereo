@@ -3,7 +3,6 @@
  * @version 0.0.2
  * @author edo#0001
  * @authorId 269831113919299584
- * @invite Knqb3mmMCA
  * @source https://github.com/edoderg/edoStereo
  * @updateUrl https://github.com/edoderg/edoStereo/blob/main/edoStereo.plugin.js
  */
@@ -75,8 +74,8 @@ module.exports = (() => {
         if (obj.fec) {
           obj.fec = false;
         }
-        if (obj.encodingVoiceBitRate < 3840000 ) { //128
-                obj.encodingVoiceBitRate = 5120000;
+        if (obj.encodingVoiceBitRate < 384000 ) { //128
+                obj.encodingVoiceBitRate = 512000; // annoying 4ss
         }
 
         setTransportOptions.call(thisObj, obj);
