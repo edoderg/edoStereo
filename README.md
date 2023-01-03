@@ -46,6 +46,10 @@
 
 # LEAVE A ⭐ THANK YOU
 
-## edo#0001 on discord
+<p align="left">
+    <a href="https://discord.com/users/269831113919299584">
+        <img title="edo's Discord" alt="edo's discord" src="https://discord.c99.nl/widget/theme-4/269831113919299584.png"/>
+    </a>
+</p> 
 
 ### Basic Code Structure inspired by @bepvte - @riolubruh <3
