@@ -22,6 +22,9 @@
 
 ## ⚠️NOTE⚠️ TURN THESE SETTINGS OFF⚠️
 
+#### Additional Information: 
+##### If you have modified the _node_modules_ folder in the discord directory, [clean reinstall your discord client](https://www.wikihow.com/Reinstall-Discord) and follow the installing process.
+
 ![Screenshot](note.png)
 
 ## [GERMAN]
@@ -41,6 +44,9 @@
 **Schritt 3.** Füge das Plugin in deinen BetterDiscord Plugin Ordner ein.
 
 ## ⚠️WARNUNG⚠️ STELLE DIESE EINSTELLUNGEN AUS⚠️
+
+#### Zusätzliche Information: 
+##### Wenn du den Ordner _node_modules_ im Discord Verzeichnis geändert hast, [installier deinen Discord Client komplett neu](https://www.wikihow.com/Reinstall-Discord) und folg dem Installierungsprozess.
 
 ![Screenshot](note.png)
 
