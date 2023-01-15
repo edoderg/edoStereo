@@ -31,7 +31,7 @@
 @else@*/
 
 module.exports = (() => {
-    const config = {"main":"index.js","info":{"name":"edoStereo","authors":[{"name":"edo#0001","discord_id":"269831113919299584"}],"version":"0.0.2","description":"[GER] Fügt Stereo Sound zu Discord hinzu. [ENG] Adds stereo sound to discord. Better Discord v1.8.4"},"changelog":[{"title":"Veränderungen","items":["BetterDiscord Stereo Sound für 1.8.4", "Benachrichtigung beim Sprachkanal Beitritt"]}],"defaultConfig":[{"type":"switch","id":"enableToasts","name":"Benachrichtung Aktivieren","note":"Warnung für Spracheinstellungsfeatures","value":true}]};
+    const config = {"main":"index.js","info":{"name":"edoStereo","authors":[{"name":"edo#0001","discord_id":"269831113919299584"}],"version":"0.0.2","description":"[GER] Fügt Stereo Sound zu Discord hinzu. [ENG] Adds stereo sound to discord. Better Discord v1.8.4"},"changelog":[{"title":"Veränderungen","items":["BetterDiscord Stereo Sound für 1.8.4"]}],"defaultConfig":[{"type":"switch","id":"enableToasts","name":"Benachrichtung Aktivieren","note":"Warnung für Spracheinstellungsfeatures","value":true}]};
 
     return !global.ZeresPluginLibrary ? class {
         constructor() {this._config = config;}
@@ -80,11 +80,6 @@ module.exports = (() => {
 
         setTransportOptions.call(thisObj, obj);
       };
-      if (!this.settingsWarning()) {
-        if (this.settings.enableToasts) {
-          Toasts.info("Stereo Sound aktiviert!");
-        }
-      }
       return ret;
 	  }});
     }
