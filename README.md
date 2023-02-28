@@ -11,7 +11,7 @@
 
 <br>
 
-**Step 2.** Download the plugin [Here](https://downgit.github.io/#/home?url=https://github.com/edoderg/edoStereo)
+**Step 2.** Download the plugin [Here](https://edoderg.github.io/edoStereo/edoStereo.plugin.js) → **WHEN ON WEBSITE:** **<ins>CTRL + S</ins>** 🚩
 
 <br>
 
@@ -37,7 +37,7 @@
 
 <br>
 
-**Schritt 2.** Lade das Plugin herunter [Hier](https://downgit.github.io/#/home?url=https://github.com/edoderg/edoStereo)
+**Schritt 2.** Lade das Plugin herunter [Hier](https://edoderg.github.io/edoStereo/edoStereo.plugin.js) → **WENN AUF WEBSEITE:** **<ins>STRG + S</ins>** 🚩
 
 <br>
 
