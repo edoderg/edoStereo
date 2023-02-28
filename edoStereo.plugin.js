@@ -67,15 +67,15 @@ module.exports = (() => {
       thisObj.conn.setTransportOptions = function (obj) {
         if (obj.audioEncoder) {
           obj.audioEncoder.params = {
-            stereo: "8",
+            stereo: "2",
           };
-          obj.audioEncoder.channels = 8;
+          obj.audioEncoder.channels = 2;
         }
         if (obj.fec) {
           obj.fec = false;
         }
-        if (obj.encodingVoiceBitRate < 384000 ) {
-                obj.encodingVoiceBitRate = 512000;
+        if (obj.encodingVoiceBitRate < 960000 ) {
+                obj.encodingVoiceBitRate = 398000;
         }
 
         setTransportOptions.call(thisObj, obj);
