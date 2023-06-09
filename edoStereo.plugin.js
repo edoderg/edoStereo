@@ -31,92 +31,92 @@
 @else@*/
 
 module.exports = (() => {
-    const config = {"main":"index.js","info":{"name":"edoStereo","authors":[{"name":"edo#0001","discord_id":"269831113919299584"}],"version":"0.0.2","description":"[GER] Fügt Stereo Sound zu Discord hinzu. [ENG] Adds stereo sound to discord. Better Discord v1.9.2"},"changelog":[{"title":"Changelog","items":["BetterDiscord Stereo Sound for 1.9.2", "Language changed"]}],"defaultConfig":[{"type":"switch","id":"enableToasts","name":"Enable notifications","note":"Warning for Discord Audio Features","value":true}]};
+  const config = {"main":"index.js","info":{"name":"edoStereo","authors":[{"name":"edo#0001","discord_id":"269831113919299584"}],"version":"0.0.2","description":"[GER] Fügt Stereo Sound zu Discord hinzu. [ENG] Adds stereo sound to discord. Better Discord v1.9.2"},"changelog":[{"title":"Changelog","items":["BetterDiscord Stereo Sound for 1.9.2", "Language changed"]}],"defaultConfig":[{"type":"switch","id":"enableToasts","name":"Enable notifications","note":"Warning for Discord Audio Features","value":true}]};
 
-    return !global.ZeresPluginLibrary ? class {
-        constructor() {this._config = config;}
-        getName() {return config.info.name;}
-        getAuthor() {return config.info.authors.map(a => a.name).join(", ");}
-        getDescription() {return config.info.description;}
-        getVersion() {return config.info.version;}
-        load() {
-            BdApi.showConfirmationModal("BetterDiscord Library Missing", `ZeresPluginLibrary is missing. Click "Install Now" to download it.`, {
-                confirmText: "Install Now",
-                cancelText: "Abbrechen",
-                onConfirm: () => {
-                    require("request").get("https://rauenzi.github.io/BDPluginLibrary/release/0PluginLibrary.plugin.js", async (error, response, body) => {
-                        if (error) return require("electron").shell.openExternal("https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js");
-                        await new Promise(r => require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0PluginLibrary.plugin.js"), body, r));
-                    });
-                }
-            });
-        }
-        start() {}
-        stop() {}
-    } : (([Plugin, Api]) => {
-        const plugin = (Plugin, Library) => {
-  const { WebpackModules, Patcher, Toasts } = Library;
+  return !global.ZeresPluginLibrary ? class {
+      constructor() {this._config = config;}
+      getName() {return config.info.name;}
+      getAuthor() {return config.info.authors.map(a => a.name).join(", ");}
+      getDescription() {return config.info.description;}
+      getVersion() {return config.info.version;}
+      load() {
+          BdApi.showConfirmationModal("BetterDiscord Library Missing", `ZeresPluginLibrary is missing. Click "Install Now" to download it.`, {
+              confirmText: "Install Now",
+              cancelText: "Abbrechen",
+              onConfirm: () => {
+                  require("request").get("https://rauenzi.github.io/BDPluginLibrary/release/0PluginLibrary.plugin.js", async (error, response, body) => {
+                      if (error) return require("electron").shell.openExternal("https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js");
+                      await new Promise(r => require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0PluginLibrary.plugin.js"), body, r));
+                  });
+              }
+          });
+      }
+      start() {}
+      stop() {}
+  } : (([Plugin, Api]) => {
+      const plugin = (Plugin, Library) => {
+const { WebpackModules, Patcher, Toasts } = Library;
 
-  return class edoStereo extends Plugin {
-    onStart() {
-      this.settingsWarning();
-      const voiceModule = WebpackModules.getModule(BdApi.Webpack.Filters.byPrototypeFields("updateVideoQuality"));
-      BdApi.Patcher.after("edoStereo", voiceModule.prototype, "updateVideoQuality", (thisObj, _args, ret) => {
-	  if(thisObj){
-      const setTransportOptions = thisObj.conn.setTransportOptions;
-      thisObj.conn.setTransportOptions = function (obj) {
-        if (obj.audioEncoder) {
-          obj.audioEncoder.params = {
-            stereo: "2",
-          };
-          obj.audioEncoder.channels = 2;
-        }
-        if (obj.fec) {
-          obj.fec = false;
-        }
-        if (obj.encodingVoiceBitRate < 512000 ) {
-                obj.encodingVoiceBitRate = 512000
-        }
-        
-        setTransportOptions.call(thisObj, obj);
-      };
-      return ret;
-	  }});
-    }
-    settingsWarning() {
-      const voiceSettingsStore = WebpackModules.getByProps("getEchoCancellation");
-      if (
-        voiceSettingsStore.getNoiseSuppression() ||
-        voiceSettingsStore.getNoiseCancellation() ||
-        voiceSettingsStore.getEchoCancellation()
-      ) {
-        if (this.settings.enableToasts) {
-          Toasts.show(
-            "Please disable echo cancellation, noise reduction, and noise suppression for edoStereo",
-            { type: "warning", timeout: 5000 }
-          );
-        }
-        // Geht nicht
-        // const voiceSettings = WebpackModules.getByProps("setNoiseSuppression");
-        // Analytics Edo
-        // voiceSettings.setNoiseSuppression(false, {});
-        // voiceSettings.setEchoCancellation(false, {});
-        // voiceSettings.setNoiseCancellation(false, {});
-        return true;
-      } else return false;
-    }
-	
-    onStop() {
-      Patcher.unpatchAll();
-    }
-    getSettingsPanel() {
-      const panel = this.buildSettingsPanel();
-      return panel.getElement();
-    }
-  };
+return class edoStereo extends Plugin {
+  onStart() {
+    this.settingsWarning();
+    const voiceModule = WebpackModules.getModule(BdApi.Webpack.Filters.byPrototypeFields("updateVideoQuality"));
+    BdApi.Patcher.after("edoStereo", voiceModule.prototype, "updateVideoQuality", (thisObj, _args, ret) => {
+  if(thisObj){
+    const setTransportOptions = thisObj.conn.setTransportOptions;
+    thisObj.conn.setTransportOptions = function (obj) {
+      if (obj.audioEncoder) {
+        obj.audioEncoder.params = {
+          stereo: "2",
+        };
+        obj.audioEncoder.channels = 2;
+      }
+      if (obj.fec) {
+        obj.fec = false;
+      }
+      if (obj.encodingVoiceBitRate < 512000 ) {
+              obj.encodingVoiceBitRate = 512000
+      }
+      
+      setTransportOptions.call(thisObj, obj);
+    };
+    return ret;
+  }});
+  }
+  settingsWarning() {
+    const voiceSettingsStore = WebpackModules.getByProps("getEchoCancellation");
+    if (
+      voiceSettingsStore.getNoiseSuppression() ||
+      voiceSettingsStore.getNoiseCancellation() ||
+      voiceSettingsStore.getEchoCancellation()
+    ) {
+      if (this.settings.enableToasts) {
+        Toasts.show(
+          "Please disable echo cancellation, noise reduction, and noise suppression for edoStereo",
+          { type: "warning", timeout: 5000 }
+        );
+      }
+      // Geht nicht
+      // const voiceSettings = WebpackModules.getByProps("setNoiseSuppression");
+      // Analytics Edo
+      // voiceSettings.setNoiseSuppression(false, {});
+      // voiceSettings.setEchoCancellation(false, {});
+      // voiceSettings.setNoiseCancellation(false, {});
+      return true;
+    } else return false;
+  }
+
+  onStop() {
+    Patcher.unpatchAll();
+  }
+  getSettingsPanel() {
+    const panel = this.buildSettingsPanel();
+    return panel.getElement();
+  }
 };
-        return plugin(Plugin, Api);
-    })(global.ZeresPluginLibrary.buildPlugin(config));
+};
+      return plugin(Plugin, Api);
+  })(global.ZeresPluginLibrary.buildPlugin(config));
 })();
 
 
