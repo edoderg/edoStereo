@@ -1,7 +1,7 @@
 /**
  * @name edoStereo
  * @version 0.0.2
- * @author edo#0001
+ * @author ed.o
  * @authorId 269831113919299584
  * @source https://github.com/edoderg/edoStereo
  * @updateUrl https://github.com/edoderg/edoStereo/blob/main/edoStereo.plugin.js
@@ -31,7 +31,7 @@
 @else@*/
 
 module.exports = (() => {
-  const config = {"main":"index.js","info":{"name":"edoStereo","authors":[{"name":"edo#0001","discord_id":"269831113919299584"}],"version":"0.0.2","description":"[GER] Fügt Stereo Sound zu Discord hinzu. [ENG] Adds stereo sound to discord. Better Discord v1.9.2"},"changelog":[{"title":"Changelog","items":["BetterDiscord Stereo Sound for 1.9.2", "Language changed"]}],"defaultConfig":[{"type":"switch","id":"enableToasts","name":"Enable notifications","note":"Warning for Discord Audio Features","value":true}]};
+  const config = {"main":"index.js","info":{"name":"edoStereo","authors":[{"name":"edo#0001","discord_id":"269831113919299584"}],"version":"0.0.2","description":"[GER] Fügt Stereo Sound zu Discord hinzu. [ENG] Adds stereo sound to discord. Better Discord v1.9.3"},"changelog":[{"title":"Changelog","items":["BetterDiscord Stereo Sound for 1.9.3", "Language changed"]}],"defaultConfig":[{"type":"switch","id":"enableToasts","name":"Enable notifications","note":"Warning for Discord Audio Features","value":true}]};
 
   return !global.ZeresPluginLibrary ? class {
       constructor() {this._config = config;}
