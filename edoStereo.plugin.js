@@ -2,7 +2,7 @@
  * @name edoStereo
  * @version 0.0.2
  * @description [ENG] Adds stereo sound to Discord. [GER] Fügt Stereo Sound zu Discord hinzu.
- * @author edo#0001
+ * @author ed.o
  * @source https://github.com/edoderg/edoStereo
  * @updateUrl https://github.com/edoderg/edoStereo/blob/main/edoStereo.plugin.js
  */
@@ -15,13 +15,13 @@ module.exports = (() => {
       authors: [{ name: "ed.o", discord_id: "269831113919299584" }],
       version: "0.0.2",
       description:
-        "[GER] Fügt Stereo Sound zu Discord hinzu. [ENG] Adds stereo sound to Discord. Better Discord v1.9.3",
+        "[ENG] Adds stereo sound to Discord. Better Discord v1.9.3 | [GER] Fügt Stereo Sound zu Discord hinzu. ",
     },
     changelog: [
       // changelog info
       {
         title: "Changelog",
-        items: ["BetterDiscord Stereo Sound for 1.9.3", "Language changed"],
+        items: ["BetterDiscord Stereo Sound for 1.9.3"],
       },
     ],
     defaultConfig: [
