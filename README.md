@@ -17,6 +17,8 @@
 
 **Step 3.** Add the plugin to your BetterDiscord plugin folder.
 
+**Step 4.** After putting the plugin into your plugins folder restart discord.
+
 <br>
 <br>
 
@@ -42,6 +44,8 @@
 <br>
 
 **Schritt 3.** Füge das Plugin in deinen BetterDiscord Plugin Ordner ein.
+
+**Schritt 4.** Nachdem du das Plugin in deinem Plugin Ordner reingelegt hast, starte Discord neu.
 
 ## ⚠️WARNUNG⚠️ STELLE DIESE EINSTELLUNGEN AUS⚠️
 
