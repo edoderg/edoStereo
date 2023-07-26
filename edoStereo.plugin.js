@@ -5,7 +5,7 @@
  * @authorLink https://github.com/edoderg
  * @website https://edoderg.github.io/
  * @source https://github.com/edoderg/edoStereo
- * @invite MKT2XBbegu
+ * @invite fgMC6SetXk
  * @updateUrl https://github.com/edoderg/edoStereo/blob/main/edoStereo.plugin.js
  */
 module.exports = (() => {
