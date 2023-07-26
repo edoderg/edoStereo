@@ -3,6 +3,8 @@
  * @version 0.0.2
  * @description [ENG] Adds stereo sound to Discord. [GER] Fügt Stereo Sound zu Discord hinzu.
  * @author ed.o
+ * @authorLink https://github.com/edoderg
+ * @website https://edoderg.github.io
  * @source https://github.com/edoderg/edoStereo
  * @updateUrl https://github.com/edoderg/edoStereo/blob/main/edoStereo.plugin.js
  */
