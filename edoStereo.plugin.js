@@ -76,7 +76,7 @@ module.exports = (() => {
         load() {
           // show modal to install zerespluginlibrary
           BdApi.showConfirmationModal(
-            "BetterDiscord Library Missing",
+            "[edoStereo] Library Missing",
             `ZeresPluginLibrary is missing. Click "Install Now" to download it.`,
             {
               confirmText: "Install Now",
