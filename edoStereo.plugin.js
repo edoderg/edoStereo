@@ -22,13 +22,12 @@ module.exports = (() => {
     changelog: [
       {
         title: "Changelog",
-        items: ["BetterDiscord Stereo Sound for 1.9.3"],
+        items: ["BetterDiscord Stereo Sound for 1.9.3", "Changed Stereo Channel Option to a Dropdown Menu"]
       },
       {
         title: "New Features",
         items: [
-          "Added a Error Handler when downloading ZeresPluginLibrary.",
-          "Added option to switch between audio channels (1.0 Mono Sound, 2.0 Normal Stereo Sound, 7.1 Surround Sound (Default) in settings.",
+          "(Still) Added option to switch between audio channels (1.0 Mono Sound, 2.0 Normal Stereo Sound, 7.1 Surround Sound (Default) in settings.",
         ],
       },
     ],
@@ -42,15 +41,31 @@ module.exports = (() => {
         value: true,
       },
       {
-        type: "radio",
+        type: "dropdown",
         id: "stereoChannelOption",
         name: "Stereo Channel Option",
-        note: "Select your preferred channel option:",
+        note: "Select your preferred channel option",
         value: "7.1",
         options: [
-          { name: "1.0 Mono Sound", value: "1.0" },
-          { name: "2.0 Normal Stereo Sound", value: "2.0" },
-          { name: "7.1 Surround Sound (Default)", value: "7.1" },
+          { label: "1.0 Mono Sound", value: "1.0" },
+          { label: "2.0 Normal Stereo Sound", value: "2.0" },
+          { label: "7.1 Surround Sound (Default)", value: "7.1" },
+        ],
+      },
+      {
+        type: "category",
+        id: "otherSettings",
+        name: "Miscellaneous",
+        shown: true,
+        settings: [
+          {
+            type: "switch",
+            id: "comingSoon1",
+            name: "This feature is coming soon!", // 👺
+            note: "This feature is coming soon!",
+            value: false,
+            disabled: true, // disabled
+          },
         ],
       },
     ],
