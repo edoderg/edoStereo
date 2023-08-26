@@ -1,7 +1,7 @@
 /**
  * @name edoStereo
  * @version 0.0.3
- * @description [ENG] Adds stereo sound to Discord. [GER] Fügt Stereo Sound zu Discord hinzu.
+ * @description Adds stereo sound to Discord. Better Discord v1.9.3
  * @authorLink https://github.com/edoderg
  * @website https://edoderg.github.io/
  * @source https://github.com/edoderg/edoStereo
@@ -17,7 +17,7 @@ module.exports = (() => {
       authors: [{ name: "ed.o", discord_id: "269831113919299584" }],
       version: "0.0.3",
       description:
-        "[ENG] Adds stereo sound to Discord. | [GER] Fügt Stereo Sound zu Discord hinzu. Better Discord v1.9.3 ",
+        "Adds stereo sound to your Discord Client. Better Discord v1.9.3",
     },
     changelog: [
       {
