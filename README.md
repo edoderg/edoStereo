@@ -1,4 +1,4 @@
-# edoStereo Plugin 0.0.3
+# edoStereo Plugin 0.0.4
 ###### [ENG] Requires a capable stereo microphone! 
 ###### [GER] Benötigt ein geeignetes Stereomikrofon!
 ## [ENGLISH]
