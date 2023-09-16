@@ -1,6 +1,6 @@
 /**
  * @name edoStereo
- * @version 0.0.3
+ * @version 0.0.4
  * @description Adds stereo sound to Discord. Better Discord v1.9.3
  * @authorLink https://github.com/edoderg
  * @website https://edoderg.github.io/
@@ -15,19 +15,19 @@ module.exports = (() => {
     info: {
       name: "edoStereo",
       authors: [{ name: "ed.o", discord_id: "269831113919299584" }],
-      version: "0.0.3",
+      version: "0.0.4",
       description:
         "Adds stereo sound to your Discord Client. Better Discord v1.9.3",
     },
     changelog: [
       {
         title: "Changelog",
-        items: ["BetterDiscord Stereo Sound for 1.9.3", "Changed Stereo Channel Option to a Dropdown Menu"]
+        items: ["BetterDiscord Stereo Sound for 1.9.3", "Disabled caps like High-Pass-Filter and Analag-Gain-Controller"]
       },
       {
         title: "New Features",
         items: [
-          "(Still) Added option to switch between audio channels (1.0 Mono Sound, 2.0 Normal Stereo Sound, 7.1 Surround Sound (Default) in settings.",
+          "Added Priority Speaking feature to indicate speaking with a priority of 5.",
         ],
       },
     ],
@@ -60,11 +60,10 @@ module.exports = (() => {
         settings: [
           {
             type: "switch",
-            id: "comingSoon1",
-            name: "This feature is coming soon!", // 👺
-            note: "This feature is coming soon!",
+            id: "prioritySpeaking",
+            name: "Priority Speaking", // added
+            note: "Enable Priority Speaking feature",
             value: false,
-            disabled: true, // disabled
           },
         ],
       },
@@ -155,9 +154,9 @@ module.exports = (() => {
                 "updateVideoQuality",
                 (thisObj, _args, ret) => {
                   if (thisObj) {
-                    const setTransportOptions =
-                      thisObj.conn.setTransportOptions;
+                    const setTransportOptions = thisObj.conn.setTransportOptions;
                     const channelOption = this.settings.stereoChannelOption;
+
                     thisObj.conn.setTransportOptions = function (obj) {
                       if (obj.audioEncoder) {
                         obj.audioEncoder.params = {
@@ -166,10 +165,16 @@ module.exports = (() => {
                         obj.audioEncoder.channels = parseFloat(channelOption);
                       }
                       if (obj.fec) {
-                        obj.fec = false;
+                        obj.fec = false; // disable forward error correction (fec)
                       }
                       if (obj.encodingVoiceBitRate < 512000) {
                         obj.encodingVoiceBitRate = 512000;
+                      }
+
+                      // bypass high-pass filter and analog gain controller
+                      if (obj.audioEncoder && obj.audioEncoder.params) {
+                        obj.audioEncoder.params.enable_high_pass_filter = false;
+                        obj.audioEncoder.params.enable_analog_gain_controller = false;
                       }
 
                       setTransportOptions.call(thisObj, obj);
@@ -178,6 +183,23 @@ module.exports = (() => {
                   }
                 }
               );
+
+              // priority Speaking
+              if (this.settings.prioritySpeaking) {
+                const speakingPayload = {
+                  op: 5,
+                  d: {
+                    speaking: 5,
+                    delay: 0,
+                    ssrc: 1,
+                  },
+                };
+
+                // send the priority speaking payload
+                BdApi.findModuleByProps("sendPayload").sendPayload(
+                  speakingPayload
+                );
+              }
             }
 
             // display settings warning
@@ -208,6 +230,12 @@ module.exports = (() => {
             // creating settings panel
             getSettingsPanel() {
               const panel = this.buildSettingsPanel();
+              const noteElement = document.createElement("div");
+              noteElement.className = "edoStereo-settings-note";
+              noteElement.textContent = "Note: After changing any setting, please rejoin the voice channel for the changes to take effect.";
+              noteElement.style.color = "#FF0000";
+              noteElement.style.marginTop = "10px";
+              panel.append(noteElement);
               return panel.getElement();
             }
           };
