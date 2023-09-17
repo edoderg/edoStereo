@@ -140,8 +140,8 @@ module.exports = (() => {
             // plugin start method
             onStart() {
               BdApi.UI.showNotice(
-                "[edoStereo v.0.0.3] You can change your stereo channel in the plugin settings from now on! 😉",
-                { type: "info", timeout: 10000 }
+                "[edoStereo v.0.0.4] You can now use edoStereo! 😉",
+                { type: "info", timeout: 5000 }
               );
               this.settingsWarning();
               const voiceModule = WebpackModules.getModule(
