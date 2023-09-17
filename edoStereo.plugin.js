@@ -22,7 +22,7 @@ module.exports = (() => {
     changelog: [
       {
         title: "Changelog",
-        items: ["BetterDiscord Stereo Sound for 1.9.3", "Disabled caps like High-Pass-Filter and Analag-Gain-Controller"]
+        items: ["BetterDiscord Stereo Sound for 1.9.3", "Disabled caps like High-Pass-Filter and Analog-Gain-Controller"]
       },
       {
         title: "New Features",
