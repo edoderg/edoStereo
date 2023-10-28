@@ -1,7 +1,7 @@
 /**
  * @name edoStereo
- * @version 0.0.4
- * @description Adds stereo sound to Discord. Better Discord v1.9.3
+ * @version 0.0.5
+ * @description Adds stereo sound to Discord. Better Discord v1.9.5
  * @authorLink https://github.com/edoderg
  * @website https://edoderg.github.io/
  * @source https://github.com/edoderg/edoStereo
@@ -15,21 +15,15 @@ module.exports = (() => {
     info: {
       name: "edoStereo",
       authors: [{ name: "ed.o", discord_id: "269831113919299584" }],
-      version: "0.0.4",
+      version: "0.0.5",
       description:
-        "Adds stereo sound to your Discord Client. Better Discord v1.9.3",
+        "Adds stereo sound to your Discord Client. Better Discord v1.9.5",
     },
     changelog: [
       {
         title: "Changelog",
-        items: ["BetterDiscord Stereo Sound for 1.9.3", "Disabled caps like High-Pass-Filter and Analog-Gain-Controller"]
-      },
-      {
-        title: "New Features",
-        items: [
-          "Added Priority Speaking feature to indicate speaking with a priority of 5.",
-        ],
-      },
+        items: ["BetterDiscord Stereo Sound for 1.9.5", "Added an option to change your bitrate", "Added an notification when joining voice channel", "Removed unnecessary stuff"]
+      }
     ],
     defaultConfig: [
       // default configuration options for the plugin
@@ -53,6 +47,19 @@ module.exports = (() => {
         ],
       },
       {
+        type: "dropdown",
+        id: "bitrateOption",
+        name: "Bitrate Option",
+        note: "Select your preferred bitrate",
+        value: "512000",
+        options: [
+            { label: "8kbps", value: "8000" }, // 🗑️
+            { label: "48kbps", value: "48000" },
+            { label: "128kbps", value: "128000" },
+            { label: "512kbps (Default)", value: "512000" },
+        ],
+      },
+      {
         type: "category",
         id: "otherSettings",
         name: "Miscellaneous",
@@ -60,10 +67,11 @@ module.exports = (() => {
         settings: [
           {
             type: "switch",
-            id: "prioritySpeaking",
-            name: "Priority Speaking", // added
-            note: "Enable Priority Speaking feature",
+            id: "comingSoon1",
+            name: "New Features", // 💔
+            note: "New Features",
             value: false,
+            disabled: true,
           },
         ],
       },
@@ -111,7 +119,6 @@ module.exports = (() => {
                       );
                       return;
                     }
-
                     await new Promise((r) =>
                       require("fs").writeFile(
                         require("path").join(
@@ -135,27 +142,19 @@ module.exports = (() => {
         // actual plugin implementation when zerespluginlibrary is available
         const plugin = (Plugin, Library) => {
           const { WebpackModules, Patcher, Toasts } = Library;
-
           return class edoStereo extends Plugin {
             // plugin start method
             onStart() {
-              BdApi.UI.showNotice(
-                "[edoStereo v.0.0.4] You can now use edoStereo! 😉",
-                { type: "info", timeout: 5000 }
-              );
+              BdApi.UI.showNotice("[edoStereo v.0.0.5] You can now use edoStereo! 😉", { type: "info", timeout: 5000 });
               this.settingsWarning();
-              const voiceModule = WebpackModules.getModule(
-                BdApi.Webpack.Filters.byPrototypeFields("updateVideoQuality")
-              );
+              this.justJoined = false;
+              const voiceModule = WebpackModules.getModule( BdApi.Webpack.Filters.byPrototypeFields("updateVideoQuality") );
               // patch discord's voice module to enable stereo sound
-              BdApi.Patcher.after(
-                "edoStereo",
-                voiceModule.prototype,
-                "updateVideoQuality",
-                (thisObj, _args, ret) => {
+              BdApi.Patcher.after("edoStereo", voiceModule.prototype, "updateVideoQuality", (thisObj, _args, ret) => {
                   if (thisObj) {
                     const setTransportOptions = thisObj.conn.setTransportOptions;
                     const channelOption = this.settings.stereoChannelOption;
+                    const selectedBitrate = this.settings.bitrateOption; 
 
                     thisObj.conn.setTransportOptions = function (obj) {
                       if (obj.audioEncoder) {
@@ -163,45 +162,29 @@ module.exports = (() => {
                           stereo: channelOption,
                         };
                         obj.audioEncoder.channels = parseFloat(channelOption);
+                        obj.encodingVoiceBitRate = parseInt(selectedBitrate);
                       }
                       if (obj.fec) {
                         obj.fec = false; // disable forward error correction (fec)
                       }
-                      if (obj.encodingVoiceBitRate < 512000) {
-                        obj.encodingVoiceBitRate = 512000;
+                      if (obj.encodingVoiceBitRate < selectedBitrate) {
+                          obj.encodingVoiceBitRate = selectedBitrate; // added
                       }
-
-                      // bypass high-pass filter and analog gain controller
-                      if (obj.audioEncoder && obj.audioEncoder.params) {
-                        obj.audioEncoder.params.enable_high_pass_filter = false;
-                        obj.audioEncoder.params.enable_analog_gain_controller = false;
+                      setTransportOptions.call(thisObj.conn, obj);
+                      if (!this.justJoined) {
+                        Toasts.show("You're using edoStereo now!", { type: "info", timeout: 5000 });
+                        this.justJoined = true;
                       }
-
-                      setTransportOptions.call(thisObj, obj);
                     };
                     return ret;
                   }
                 }
               );
-
-              // priority Speaking
-              if (this.settings.prioritySpeaking) {
-                const speakingPayload = {
-                  op: 5,
-                  d: {
-                    speaking: 5,
-                    delay: 0,
-                    ssrc: 1,
-                  },
-                };
-
-                // send the priority speaking payload
-                BdApi.findModuleByProps("sendPayload").sendPayload(
-                  speakingPayload
-                );
-              }
+              const voiceConnectionModule = WebpackModules.getByProps("hasVideo", "disconnect", "isConnected");
+              this.disconnectPatcher = BdApi.Patcher.after("edoStereo", voiceConnectionModule, "disconnect", () => {
+                this.justJoined = false;
+              });
             }
-
             // display settings warning
             settingsWarning() {
               const voiceSettingsStore = WebpackModules.getByProps(
@@ -222,10 +205,10 @@ module.exports = (() => {
                 return true;
               } else return false;
             }
-
             // plugin stop method
             onStop() {
               Patcher.unpatchAll();
+              if (this.disconnectPatcher) this.disconnectPatcher();
             }
             // creating settings panel
             getSettingsPanel() {
