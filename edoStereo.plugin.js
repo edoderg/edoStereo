@@ -167,9 +167,7 @@ module.exports = (() => {
                       if (obj.fec) {
                         obj.fec = false; // disable forward error correction (fec)
                       }
-                      if (obj.encodingVoiceBitRate < selectedBitrate) {
-                          obj.encodingVoiceBitRate = selectedBitrate; // added
-                      }
+                      obj.encodingVoiceBitRate = parseInt(selectedBitrate); // added
                       setTransportOptions.call(thisObj.conn, obj);
                       if (!this.justJoined) {
                         Toasts.show("You're using edoStereo now!", { type: "info", timeout: 5000 });
