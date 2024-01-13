@@ -3,7 +3,7 @@
 ###### [GER] Benötigt ein geeignetes Stereomikrofon!
 ## [ENGLISH]
 
-## Stereo sound for Discord. BetterDiscord 1.9.5
+## Stereo sound for Discord. BetterDiscord 1.9.7
 
 # How to Install ✅
 
@@ -42,7 +42,7 @@
 
 ## [GERMAN]
 
-## Stereo Sound für Discord. BetterDiscord 1.9.5
+## Stereo Sound für Discord. BetterDiscord 1.9.7
 
 ### Installieren
 
@@ -68,11 +68,5 @@
 ![Screenshot](note.png)
 
 # LEAVE A ⭐ THANK YOU
-
-<p align="left">
-    <a href="https://discord.com/users/269831113919299584">
-        <img title="edo's Discord" alt="edo's discord" src="https://discord.c99.nl/widget/theme-4/269831113919299584.png"/>
-    </a>
-</p> 
 
 ### Basic Code Structure inspired by @bepvte - @riolubruh <3
