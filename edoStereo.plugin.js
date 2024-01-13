@@ -1,7 +1,7 @@
 /**
  * @name edoStereo
  * @version 0.0.5
- * @description Adds stereo sound to Discord. Better Discord v1.9.5
+ * @description Adds stereo sound to Discord. Better Discord v1.9.7
  * @authorLink https://github.com/edoderg
  * @website https://edoderg.github.io/
  * @source https://github.com/edoderg/edoStereo
@@ -17,12 +17,12 @@ module.exports = (() => {
       authors: [{ name: "ed.o", discord_id: "269831113919299584" }],
       version: "0.0.5",
       description:
-        "Adds stereo sound to your Discord Client. Better Discord v1.9.5",
+        "Adds stereo sound to your Discord Client. Better Discord v1.9.7",
     },
     changelog: [
       {
         title: "Changelog",
-        items: ["BetterDiscord Stereo Sound for 1.9.5", "Added an option to change your bitrate", "Added an notification when joining voice channel", "Removed unnecessary stuff"]
+        items: ["BetterDiscord Stereo Sound for 1.9.7"]
       }
     ],
     defaultConfig: [
