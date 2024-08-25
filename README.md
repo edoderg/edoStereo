@@ -9,7 +9,7 @@
 
 ### Check this video out to see how to install and use the edoStereo plugin:
 
-### **[How to Install Youtube Video ✓](https://www.youtube.com/watch?v=4cHB2EiLVk4)**
+### **[How to Install Youtube Video ✓](https://www.youtube.com/watch?v=CWMDZX4hW6A)**
 
 <br>
 <br>
