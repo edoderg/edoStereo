@@ -77,7 +77,7 @@ module.exports = (() => {
           {
             type: "switch",
             id: "enableSpotifyPauseBlocker", // added
-            name: "Enable Spotify Pause Blocker",
+            name: "Spotify Pause Blocker",
             note: "Prevents Discord from pausing Spotify after 30 seconds of constant mic input",
             value: false,
           },
