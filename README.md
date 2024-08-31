@@ -1,3 +1,4 @@
+#### Remember this plugin uses features that aren't official. Don't ask about it in other servers etc.
 # edoStereo Plugin 0.0.6
 ###### [ENG] Requires a capable stereo microphone! 
 ###### [GER] Benötigt ein geeignetes Stereomikrofon!
