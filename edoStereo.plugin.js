@@ -112,7 +112,7 @@ module.exports = (() => {
               cancelText: "Cancel",
               onConfirm: () => {
                 require("request").get(
-                  "https://rauenzi.github.io/BDPluginLibrary/release/0PluginLibrary.plugin.js",
+                  "https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js",
                   async (error, response, body) => {
                     if (error) {
                       console.error("Error downloading ZeresPluginLibrary:", error);
