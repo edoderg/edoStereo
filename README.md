@@ -1,5 +1,8 @@
+# ⚠️ currently not working / ⚠️
+# don't download other plugins, unless you're 100% sure they're safe and don't got any obfuscated javascript code in it
+
 #### Remember this plugin uses features that aren't official. Don't ask about it in other servers etc.
-# edoStereo Plugin 0.0.6
+## edoStereo Plugin 0.0.6
 ###### [ENG] Requires a capable stereo microphone! 
 ###### [GER] Benötigt ein geeignetes Stereomikrofon!
 ## [ENGLISH]
